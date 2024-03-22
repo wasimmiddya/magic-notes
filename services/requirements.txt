@@ -1,0 +1,6 @@
+Flask
+flask-cors
+langchain
+python-box
+sentence-transformers
+notebook
