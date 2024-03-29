@@ -1,0 +1,38 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.2rem 1rem;
+  background: rgb(72, 72, 72);
+  border-bottom: 1.5px solid rgb(116, 116, 116);
+  color: white;
+}
+
+.logoDiv {
+  display: flex;
+  align-items: center;
+  margin-right: 58rem;
+}
+
+.logoName {
+  margin: 0 4px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Auth {
+  margin-right: 40px;
+}
+
+.AuthBtn {
+  margin: 0 15px;
+  background: rgb(5, 207, 5);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
