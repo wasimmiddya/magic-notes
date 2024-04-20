@@ -22,6 +22,34 @@ def blogGenerator(blogTopic, blogStyle, words):
     
 
 
-def genAdvtise():
-    pass
+def adGenerator(topic, adStyle, words, info=None):
+    llm = ollama.Ollama(model="gemma:2b")
+    
+    additional_info = ""
+    
+    if(info != None):
+        additional_info = f"""
+        Here are some additional informations about this advertisement ::
+        {info}
+        """
+    
+    ad_template = PromptTemplate.from_template(
+        """
+            You are a content writer and have well expertise in writing advertisement.
+            Write an advertisement on {topic} for {adStyle} within {words} words.
+            {additional_info}
+        """
+    )
+    
+    prompt = ad_template.format(
+        topic=topic, 
+        adStyle=adStyle, 
+        words=words, 
+        additional_info=additional_info
+    )
+    
+    response = llm.invoke(prompt)
+    
+    return response
+
 
