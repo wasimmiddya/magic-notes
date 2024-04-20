@@ -1,4 +1,6 @@
 import { Schema, model } from "mongoose";
+import bcrypt from "bcrypt";
+import { SALT } from "../constants";
 
 const userSchema = new Schema({
 	username: {
@@ -24,6 +26,14 @@ const userSchema = new Schema({
 	avater: {
 		type: String,
 	},
+});
+
+// Settign the password before save it to the data base
+userSchema.pre("save", async function (next) {
+	if (!this.isModified("password")) return next();
+
+	this.password = await bcrypt.hash(this.password, SALT);
+	next();
 });
 
 export const User = model("User", userSchema);
